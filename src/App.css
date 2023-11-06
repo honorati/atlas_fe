@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans');
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,38 +6,114 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inputText{
+  border: #EFEFEF;
+  display: flex;
+  min-height: 1rem;
+  min-width: 1rem;
+  padding: 0.7rem;
+  align-items: center; 
+  gap: 0.5rem;
+  align-self: stretch;
+  border-radius: 0.7rem;
+  background: #EFEFEF; 
+  color: #995D21;
+  font-size: 1.25rem;
+  font-family: Noto Sans;
+  font-style: oblique;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.inputCheckbox{
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 1rem;
+  background: #EFEFEF;
 }
 
-.card {
-  padding: 2em;
+::placeholder {
+  color: #4b433c;
+  font-family: Noto Sans;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
 }
 
-.read-the-docs {
-  color: #888;
+label {
+  color: #000000;
+  font-family: Noto Sans;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400; 
+  justify-content: space-between;
+}
+
+p {
+  color: #000000;
+  font-family: Noto Sans;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+h1 {
+  color: #995D21;
+  font-family: Noto Sans;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-display: swap;
+  font-weight: 50000;  
+  line-height: 100%; 
+  text-transform: uppercase;
+} 
+
+button {
+  display: flex;
+  padding: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  background: #F2E2C2;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #995D21;
+  text-align: center;
+  font-family: Noto Sans;
+  min-width: 10rem;
+  font-size: 1,25rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 100%; /* 1.25rem */
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: #995D21;
+  color: #F2E2C2;
+  transition: 0.5s;
+  border: #995D21;
+}
+
+
+.dataCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex: 1 0 0;
+  background: rgba(255, 0, 0, 0.00);
+}
+
+.dataColWhite {
+  display: flex;
+  max-width: 30rem;
+  padding: 5rem;
+  flex-direction: column;
+  align-items: center; 
+  gap: 1rem;
+  align-self: stretch;
+  border-radius: 1rem;
+  background: #FFF;
+  justify-content: space-between;
 }
