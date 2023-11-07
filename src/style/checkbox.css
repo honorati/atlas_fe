@@ -15,7 +15,7 @@
     display: block;
     transform-origin: 50% 50%;
     transform-style: preserve-3d;
-    transition: transform 0.14s ease;
+    transition: transform 0.14s ease; 
   }
   .checkbox-wrapper-44 .toggleButton:active {
     transform: rotateX(30deg);
@@ -24,17 +24,17 @@
     border: 3px solid rgba(0, 0, 0, 0.2);
     border-radius: 50%;
     position: relative;
-    width: 44px;
-    height: 44px;
+    width: 30px;
+    height: 30px;
   }
-  .checkbox-wrapper-44 .toggleButton input + div svg {
+  .checkbox-wrapper-44 .toggleButton input + div svg { 
     fill: none;
     stroke-width: 3.6;
     stroke: #000;
     stroke-linecap: round;
     stroke-linejoin: round;
-    width: 44px;
-    height: 44px;
+    width: 30px;
+    height: 30px;
     display: block;
     position: absolute;
     left: -3px;

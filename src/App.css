@@ -1,39 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans');
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+:root {
+  font-family: Noto Sans;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
 .inputText{
   border: #EFEFEF;
   display: flex;
-  min-height: 1rem;
-  min-width: 1rem;
-  padding: 0.7rem;
+  min-height: 25px;
+  min-width: 120px;
+  padding: 10px;
+  align-self: stretch;
   align-items: center; 
   gap: 0.5rem;
-  align-self: stretch;
-  border-radius: 0.7rem;
+  border-radius: 0.6rem;
   background: #EFEFEF; 
   color: #995D21;
-  font-size: 1.25rem;
+  font-size: 1.25rem; 
   font-family: Noto Sans;
   font-style: oblique;
-}
-
-.inputCheckbox{
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: 1rem;
-  background: #EFEFEF;
+  min-width: 300px;
 }
 
 ::placeholder {
   color: #4b433c;
   font-family: Noto Sans;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
 }
@@ -41,7 +63,7 @@
 label {
   color: #000000;
   font-family: Noto Sans;
-  font-size: 1.25rem;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400; 
   justify-content: space-between;
@@ -62,12 +84,41 @@ h1 {
   font-size: 2.25rem;
   font-style: normal;
   font-display: swap;
-  font-weight: 50000;  
+  font-weight: bold;   
   line-height: 100%; 
   text-transform: uppercase;
+  justify-content: left;
 } 
 
 button {
+  border: 1px solid transparent;
+  display: flex;
+  padding: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  background: #D0A981;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #995D21;
+  text-align: center;
+  font-family: Noto Sans;
+  min-width: 120px;
+  font-size: 1,25rem;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 100%; 
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: #995D21;
+  color: #F2E2C2;
+  transition: 0.5s;
+  border: #995D21;
+}
+
+.buttonCancel {
   display: flex;
   padding: 1.25rem;
   justify-content: center;
@@ -79,41 +130,41 @@ button {
   color: #995D21;
   text-align: center;
   font-family: Noto Sans;
-  min-width: 10rem;
+  min-width: 120px;
   font-size: 1,25rem;
   font-style: normal;
-  font-weight: 900;
+  font-weight: bold;
   line-height: 100%; /* 1.25rem */
   text-transform: uppercase;
 }
 
-button:hover {
-  background: #995D21;
-  color: #F2E2C2;
-  transition: 0.5s;
-  border: #995D21;
-}
-
-
-.dataCol {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  flex: 1 0 0;
-  background: rgba(255, 0, 0, 0.00);
-}
-
 .dataColWhite {
   display: flex;
-  max-width: 30rem;
-  padding: 5rem;
+  padding: 20px;
   flex-direction: column;
   align-items: center; 
-  gap: 1rem;
+  gap: 10px;
   align-self: stretch;
-  border-radius: 1rem;
+  border-radius: 10px;
   background: #FFF;
   justify-content: space-between;
+  min-width: 250px;
+  max-width: 500px;
+} 
+
+.containerLabel{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 1rem;
+  gap: 1rem;
+}
+
+.twoColumns{
+  min-width: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
