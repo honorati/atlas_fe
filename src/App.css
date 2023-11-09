@@ -28,28 +28,11 @@ a:hover {
 
 body {
   margin: 0;
+  font-size: 20px;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
-
-.inputText{
-  border: #EFEFEF;
-  display: flex;
-  min-height: 25px;
-  min-width: 120px;
-  padding: 10px;
-  align-self: stretch;
-  align-items: center; 
-  gap: 0.5rem;
-  border-radius: 0.6rem;
-  background: #EFEFEF; 
-  color: #995D21;
-  font-size: 1.25rem; 
-  font-family: Noto Sans;
-  font-style: oblique;
-  min-width: 300px;
 }
 
 ::placeholder {
@@ -63,7 +46,6 @@ body {
 label {
   color: #000000;
   font-family: Noto Sans;
-  font-size: 18px;
   font-style: normal;
   font-weight: 400; 
   justify-content: space-between;
@@ -103,7 +85,7 @@ button {
   color: #995D21;
   text-align: center;
   font-family: Noto Sans;
-  min-width: 120px;
+  min-width: 6rem;
   font-size: 1,25rem;
   font-style: normal;
   font-weight: bold;
@@ -118,53 +100,3 @@ button:hover {
   border: #995D21;
 }
 
-.buttonCancel {
-  display: flex;
-  padding: 1.25rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  border-radius: 0.5rem;
-  background: #F2E2C2;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  color: #995D21;
-  text-align: center;
-  font-family: Noto Sans;
-  min-width: 120px;
-  font-size: 1,25rem;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 100%; /* 1.25rem */
-  text-transform: uppercase;
-}
-
-.dataColWhite {
-  display: flex;
-  padding: 20px;
-  flex-direction: column;
-  align-items: center; 
-  gap: 10px;
-  align-self: stretch;
-  border-radius: 10px;
-  background: #FFF;
-  justify-content: space-between;
-  min-width: 250px;
-  max-width: 500px;
-} 
-
-.containerLabel{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 100%;
-  padding-left: 1rem;
-  gap: 1rem;
-}
-
-.twoColumns{
-  min-width: 250px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
