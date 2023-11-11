@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './App.css'
+import './style/App.css'
 import './style/checkbox.css'
 import './style/classes.css'
-import { SignUp } from './components/signup.component.tsx'
+import { WYSIWIG } from './components/text.editor.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode> 
-    <SignUp/>
-  </React.StrictMode>,
+    <WYSIWIG/>
+  </React.StrictMode>, 
 )

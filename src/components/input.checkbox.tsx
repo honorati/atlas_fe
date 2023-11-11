@@ -17,7 +17,7 @@ export function CheckBox(props : Props) {
                     </div>               
                 </label>
             </div> 
-            <label htmlFor="mailing">{props.label}</label>   
+            <label htmlFor="">{props.label}</label>   
         </div>
     )
 }
