@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './style/App.css'
 import './style/checkbox.css'
 import './style/classes.css'
-import { WYSIWIG } from './components/text.editor.tsx'
+import { WYSIWIG } from './components/wysiwig.editor'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode> 

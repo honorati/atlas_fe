@@ -18,8 +18,7 @@ export function WYSIWIG(props : Props) {
             language: 'pt_BR',
             icons: 'small',
             skin: 'small',
-            font_family_formats: 'Noto Sans',
-            toolbar:'blocks fontsize bold italic underline strikethrough removeformat' +
+            toolbar:'blocks fontfamily fontsize bold italic underline strikethrough removeformat' +
             ' link image table mergetags align lineheight numlist bullist indent outdent',
             plugins: 'mentions anchor autolink charmap codesample image link inlinecss ' +
             'lists media searchreplace table visualblocks wordcount checklist casechange '+ 
@@ -33,8 +32,7 @@ export function WYSIWIG(props : Props) {
                 language: 'pt_BR',
                 icons: 'small',
                 skin: 'small',
-                font_family_formats: 'Noto Sans',
-                toolbar:'blocks fontsize bold italic underline strikethrough removeformat' +
+                toolbar:'blocks fontfamily fontsize bold italic underline strikethrough removeformat' +
                 ' link image table mergetags align lineheight numlist bullist indent outdent',
                 plugins: ' mentions anchor autolink charmap codesample image link inlinecss ' +
                 'lists media searchreplace table visualblocks wordcount checklist casechange '+ 
