@@ -16,6 +16,11 @@
   min-width: 15rem;
 }
 
+.containerCentralized {
+  align-self: center;
+  align-items: center;
+}
+
 .buttonCancel {
   display: flex;
   padding: 1.25rem;
@@ -47,7 +52,6 @@
   background: #FFF;
   justify-content: space-between;
   min-width: 12rem;
-  max-width: 25rem;
 } 
 
 .containerLabel {
