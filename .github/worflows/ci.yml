@@ -1,4 +1,4 @@
-name: Atlasdomultiverso.com.br CI
+name: AtlasdoMultiverso.com.br CI
   on:
     push:
       branches:

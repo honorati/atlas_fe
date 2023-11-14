@@ -48,7 +48,7 @@
   align-items: center; 
   gap: 0.5rem;
   align-self: stretch;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   background: #FFF;
   justify-content: space-between;
   min-width: 12rem;
