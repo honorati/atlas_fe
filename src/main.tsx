@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./style/App.css";
-import "./style/Checkbox.css";
 import "./style/Classes.css";
 import { Incoming } from "./components/incoming.component";
 
