@@ -13,28 +13,28 @@ export function SignUp() {
           type="text"
           placeholder="Como devemos te chamar?"
           id="login"
-          minLength=5
+          minLength="5"
           maxLength="100"
         />
         <Text
           type="text"
           placeholder="Qual seu e-mail?"
           id="email"
-          minLength=5
+          minLength="5"
           maxLength="100"
         />
         <Text
           type="password"
           placeholder="Insira uma senha"
           id="password"
-          minLength=5
+          minLength="5"
           maxLength="100"
         />
         <Text
           type="password"
           placeholder="Repita sua senha, tem que ser igualzinha!"
           id="repeatPassword"
-          minLength=5
+          minLength="5"
           maxLength="100"
         />
         <CheckBox id="mailing" label="Quero receber novidades por email" />
