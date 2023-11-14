@@ -3,11 +3,9 @@ name: AtlasdoMultiverso.com.br CI
     push:
       branches:
         - main 
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Install Node.js
@@ -19,12 +17,12 @@ jobs:
     - name: Run build task
       run: npm run build --if-present
     - name: Deploy to Server
-      uses: easingthemes/ssh-deploy@main
+      uses: easingthemes/ssh-deploy@v4.1.10
       with:
-          SSH_PRIVATE_KEY: ${{ secrets.FTP_SSH_KEY }}
-          ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: "dist/"
-          REMOTE_HOST: ${{ secrets.FTP_SERVER }}
-          REMOTE_USER: ${{ secrets.FTP_USERNAME }}
-          TARGET: ${{ secrets.FTP_FOLDER }}
-          EXCLUDE: "/dist/, /node_modules/, /.vscode"
+        SSH_PRIVATE_KEY: ${{ secrets.FTP_SSH_KEY }}
+        ARGS: "-rlgoDzvc -i --delete"
+        SOURCE: "dist/"
+        REMOTE_HOST: ${{ secrets.FTP_SERVER }}
+        REMOTE_USER: ${{ secrets.FTP_USERNAME }}
+        TARGET: ${{ secrets.FTP_FOLDER }}
+        EXCLUDE: "/dist/, /node_modules/, /.vscode"
