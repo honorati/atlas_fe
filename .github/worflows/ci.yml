@@ -6,7 +6,6 @@ name: Atlasdomultiverso.com.br CI
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -28,4 +27,4 @@ jobs:
           REMOTE_HOST: ${{ secrets.FTP_SERVER }}
           REMOTE_USER: ${{ secrets.FTP_USERNAME }}
           TARGET: ${{ secrets.FTP_FOLDER }}
-          EXCLUDE: "/dist/, /node_modules/"
+          EXCLUDE: "/dist/, /node_modules/, /.vscode"
