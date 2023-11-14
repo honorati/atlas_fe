@@ -1,19 +1,20 @@
 type Props = {
   placeholder: string;
   id: string;
-  maxLength: number;
-  minLength: number;
+  maxLength: string;
+  minLength: string;
+  type: string;
 };
 
-export function CheckBox(props: Props) {
+export function Text(props: Props) {
   return (
     <input
-      type="text"
-      placeholder={props.placeholder}
-      className="inputText"
       id={props.id}
-      maxLength={props.maxLength}
-      minLength={props.minLength}
+      type={props.type}
+      placeholder={props.placeholder}
+      maxLength={Number(props.maxLength)}
+      minLength={Number(props.minLength)}
+      className="inputText"
     />
   );
 }

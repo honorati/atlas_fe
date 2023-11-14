@@ -1,4 +1,5 @@
 import { CheckBox } from "./input.checkbox";
+import { Text } from "./input.text";
 
 export function SignUp() {
   return (
@@ -8,29 +9,33 @@ export function SignUp() {
         <p>
           Tenha acesso a tudo que o Atlas tem a oferecer, basta criar sua conta
         </p>
-        <input
+        <Text
           type="text"
           placeholder="Como devemos te chamar?"
-          className="inputText"
           id="login"
+          minLength=5
+          maxLength="100"
         />
-        <input
+        <Text
           type="text"
           placeholder="Qual seu e-mail?"
-          className="inputText"
           id="email"
+          minLength=5
+          maxLength="100"
         />
-        <input
+        <Text
           type="password"
-          placeholder="Escolha uma senha poderosa!"
-          className="inputText"
+          placeholder="Insira uma senha"
           id="password"
+          minLength=5
+          maxLength="100"
         />
-        <input
+        <Text
           type="password"
           placeholder="Repita sua senha, tem que ser igualzinha!"
-          className="inputText"
           id="repeatPassword"
+          minLength=5
+          maxLength="100"
         />
         <CheckBox id="mailing" label="Quero receber novidades por email" />
         <CheckBox
