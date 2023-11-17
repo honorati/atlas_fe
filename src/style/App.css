@@ -55,7 +55,6 @@ p {
   font-weight: 400;
 }
 
-
 h1 {
   color: #995D21;
   font-family: Noto Sans;
@@ -175,7 +174,6 @@ button:hover {
   justify-content: space-between;
   width: 100%;
 }
-
 
 .checkbox-wrapper-44 input[type="checkbox"] {
   display: none;
