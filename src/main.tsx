@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./style/App.css";
-import { MapEditor } from "./components/map-coordinates.component";
+import { SignUp } from "./components/signup.component";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <MapEditor />
+    <SignUp />
   </React.StrictMode>,
 );
