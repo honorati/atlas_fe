@@ -1,4 +1,5 @@
 import { PinMap } from "./pin-map";
+import "../styles/Maps.css";
 
 export function MapEditor() {
   function pegarCoordenada() {

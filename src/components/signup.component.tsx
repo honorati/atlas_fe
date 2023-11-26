@@ -12,10 +12,10 @@ export function SignUp() {
         </p>
         <Text
           type="text"
-          placeholder="Como devemos te chamar?"
+          placeholder="Como devemos te chamar? Não utilize espaços!"
           id="login"
           minLength={5}
-          maxLength={100}
+          maxLength={15}
         />
         <Text
           type="text"

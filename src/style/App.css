@@ -18,13 +18,16 @@
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: rgb(160, 130, 100);
   text-decoration: inherit;
+  transition: 0.5s;
 }
 
-a:hover {
+a:hover { 
   color: #535bf2;
+  transition: 0.5s;
 }
 
 body {
@@ -67,7 +70,7 @@ h1 {
   justify-content: left;
 } 
 
-button {
+.defaultButton {
   border: 1px solid transparent;
   display: flex;
   padding: 1.25rem;
@@ -76,6 +79,7 @@ button {
   gap: 0.625rem;
   border-radius: 0.5rem;
   background: #D0A981;
+  border: #D0A981;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: #995D21;
   text-align: center;
@@ -87,9 +91,10 @@ button {
   line-height: 100%; 
   text-transform: uppercase;
   transition: 0.5s;
+  margin-top: 2rem;
 }
 
-button:hover {
+.defaultButton:hover {
   background: #995D21;
   color: #F2E2C2;
   transition: 0.5s;
@@ -98,46 +103,13 @@ button:hover {
 
 
 /* Classes */
-
-.imageMinimized {
-  max-width:10rem;
-  max-height:10rem;
-  width: auto;
-  height: auto;
-  transition: 0.25s;
+.alignRight {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
 }
-
-.imageMinimized:hover {
-  max-width:64rem;
-  max-height:36rem;
-  width: auto;
-  height: auto;  
-  transition: 0.25s;
-}
-
-.worldMap {
-  position: absolute;
-  display: flex; 
-} 
-
-.pinMap {
-  position: absolute;
-}
-
-.pinMapImage {
-  filter: drop-shadow(2px 2px 2px black);
-  position: absolute;
-  width: auto;
-  height: auto;  
-  transition: 0.5s;
-} 
-
-.pinMapImage:hover {
-  filter: drop-shadow(7px 7px 7px #F2E2C2);
-  width: auto;
-  height: auto;  
-  transition: 0.5s;
-} 
 
 .inputText {
   border: #EFEFEF;
@@ -187,18 +159,7 @@ button:hover {
   text-transform: uppercase;
 }
 
-.containerWhite {
-  display: flex;
-  padding: 1.25rem;
-  flex-direction: column;
-  align-items: center; 
-  gap: 0.5rem;
-  align-self: stretch;
-  border-radius: 0.5rem;
-  background: #FFF;
-  justify-content: space-between;
-  min-width: 12rem;
-} 
+
 
 .containerLabel {
   display: flex;
@@ -215,208 +176,4 @@ button:hover {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-}
-
-/* Specific */
-/* Checkbox */
-.checkbox-wrapper-44 input[type="checkbox"] {
-  display: none;
-  visibility: hidden;
-}
-
-.checkbox-wrapper-44 *,
-.checkbox-wrapper-44 *::before,
-.checkbox-wrapper-44 *::after {
-  box-sizing: border-box;
-}
-
-.checkbox-wrapper-44 .toggleButton {
-  cursor: pointer;
-  display: block;
-  transform-origin: 50% 50%;
-  transform-style: preserve-3d;
-  transition: transform 0.14s ease; 
-}
-.checkbox-wrapper-44 .toggleButton:active {
-  transform: rotateX(30deg);
-}
-.checkbox-wrapper-44 .toggleButton input + div {
-  border: 3px solid rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  position: relative;
-  width: 30px;
-  height: 30px;
-}
-.checkbox-wrapper-44 .toggleButton input + div svg { 
-  fill: none;
-  stroke-width: 3.6;
-  stroke: #000;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  width: 30px;
-  height: 30px;
-  display: block;
-  position: absolute;
-  left: -3px;
-  top: -3px;
-  right: -3px;
-  bottom: -3px;
-  z-index: 1;
-  stroke-dashoffset: 124.6;
-  stroke-dasharray: 0 162.6 133 29.6;
-  transition: all 0.4s ease 0s;
-}
-.checkbox-wrapper-44 .toggleButton input + div:before,
-.checkbox-wrapper-44 .toggleButton input + div:after {
-  content: "";
-  width: 3px;
-  height: 16px;
-  background: #000;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  border-radius: 5px;
-}
-.checkbox-wrapper-44 .toggleButton input + div:before {
-  opacity: 0;
-  transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
-  -webkit-animation: bounceInBefore-44 0.3s linear forwards 0.3s;
-          animation: bounceInBefore-44 0.3s linear forwards 0.3s;
-}
-.checkbox-wrapper-44 .toggleButton input + div:after {
-  opacity: 0;
-  transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
-  -webkit-animation: bounceInAfter-44 0.3s linear forwards 0.3s;
-          animation: bounceInAfter-44 0.3s linear forwards 0.3s;
-}
-.checkbox-wrapper-44 .toggleButton input:checked + div svg {
-  stroke-dashoffset: 162.6;
-  stroke-dasharray: 0 162.6 28 134.6;
-  transition: all 0.4s ease 0.2s;
-}
-.checkbox-wrapper-44 .toggleButton input:checked + div:before {
-  opacity: 0;
-  transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
-  -webkit-animation: bounceInBeforeDont-44 0.3s linear forwards 0s;
-          animation: bounceInBeforeDont-44 0.3s linear forwards 0s;
-}
-.checkbox-wrapper-44 .toggleButton input:checked + div:after {
-  opacity: 0;
-  transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
-  -webkit-animation: bounceInAfterDont-44 0.3s linear forwards 0s;
-          animation: bounceInAfterDont-44 0.3s linear forwards 0s;
-}
-
-@-webkit-keyframes bounceInBefore-44 {
-  0% {
-    opacity: 0;
-    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.1) translate(-50%, -50%) rotate(45deg);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(0.89) translate(-50%, -50%) rotate(45deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translate(-50%, -50%) rotate(45deg);
-  }
-}
-
-@keyframes bounceInBefore-44 {
-  0% {
-    opacity: 0;
-    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.1) translate(-50%, -50%) rotate(45deg);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(0.89) translate(-50%, -50%) rotate(45deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translate(-50%, -50%) rotate(45deg);
-  }
-}
-@-webkit-keyframes bounceInAfter-44 {
-  0% {
-    opacity: 0;
-    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.1) translate(-50%, -50%) rotate(-45deg);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(0.89) translate(-50%, -50%) rotate(-45deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translate(-50%, -50%) rotate(-45deg);
-  }
-}
-@keyframes bounceInAfter-44 {
-  0% {
-    opacity: 0;
-    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.1) translate(-50%, -50%) rotate(-45deg);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(0.89) translate(-50%, -50%) rotate(-45deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translate(-50%, -50%) rotate(-45deg);
-  }
-}
-@-webkit-keyframes bounceInBeforeDont-44 {
-  0% {
-    opacity: 1;
-    transform: scale(1) translate(-50%, -50%) rotate(45deg);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
-  }
-}
-@keyframes bounceInBeforeDont-44 {
-  0% {
-    opacity: 1;
-    transform: scale(1) translate(-50%, -50%) rotate(45deg);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
-  }
-}
-@-webkit-keyframes bounceInAfterDont-44 {
-  0% {
-    opacity: 1;
-    transform: scale(1) translate(-50%, -50%) rotate(-45deg);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
-  }
-}
-@keyframes bounceInAfterDont-44 {
-  0% {
-    opacity: 1;
-    transform: scale(1) translate(-50%, -50%) rotate(-45deg);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
-  }
 }

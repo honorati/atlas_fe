@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import { useState, ChangeEvent, forwardRef, ForwardedRef } from "react";
 
 type Props = {
   placeholder: string;
@@ -9,29 +9,26 @@ type Props = {
   initialValue?: string;
 };
 
-export class Text extends React.Component<Props, { value: string }> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { value: this.props.initialValue || "" };
-    this.handleChange = this.handleChange.bind(this);
-  }
+const Text = forwardRef((props: Props, ref: ForwardedRef<HTMLInputElement>) => {
+  const [value, setValue] = useState<string>(props.initialValue || "");
 
-  handleChange(event: ChangeEvent<HTMLInputElement>) {
-    this.setState({ value: event.target.value });
-  }
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
 
-  render() {
-    return (
-      <input
-        id={this.props.id}
-        type={this.props.type}
-        placeholder={this.props.placeholder}
-        maxLength={this.props.maxLength}
-        minLength={this.props.minLength}
-        className="inputText"
-        value={this.state.value}
-        onChange={this.handleChange}
-      />
-    );
-  }
-}
+  return (
+    <input
+      ref={ref}
+      id={props.id}
+      type={props.type}
+      placeholder={props.placeholder}
+      maxLength={props.maxLength}
+      minLength={props.minLength}
+      className="inputText"
+      value={value}
+      onChange={handleChange}
+    />
+  );
+});
+
+export { Text };

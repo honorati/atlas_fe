@@ -1,0 +1,15 @@
+.imageMinimized {
+    max-width:10rem;
+    max-height:10rem;
+    width: auto;
+    height: auto;
+    transition: 0.25s;
+  }
+  
+  .imageMinimized:hover {
+    max-width:64rem;
+    max-height:36rem;
+    width: auto;
+    height: auto;  
+    transition: 0.25s;
+  }

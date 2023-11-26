@@ -1,3 +1,5 @@
+import "../styles/Maps.css";
+
 type Props = {
   id: string;
   position: string;

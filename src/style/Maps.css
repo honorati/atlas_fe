@@ -1,0 +1,23 @@
+.worldMap {
+    position: absolute;
+    display: flex; 
+  } 
+  
+  .pinMap {
+    position: absolute;
+  }
+  
+  .pinMapImage {
+    filter: drop-shadow(2px 2px 2px black);
+    position: absolute;
+    width: auto;
+    height: auto;  
+    transition: 0.5s;
+  } 
+  
+  .pinMapImage:hover {
+    filter: drop-shadow(7px 7px 7px #F2E2C2);
+    width: auto;
+    height: auto;  
+    transition: 0.5s;
+  } 
