@@ -4,17 +4,14 @@
     border-radius: 50%;
     background-color: #D0A981;
     color: #fff; 
-    font-size: 18px;
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.5rem;
     cursor: pointer;
     border: none;
     outline: none;
     position: fixed;
     margin-top: 10px;
-    margin-left: 10px;
-    content: "\00d7";
+    margin-left: 90%;
+    vertical-align: auto;
   }
 
   .button-circle:after {
@@ -22,5 +19,5 @@
   }
   
   .button-circle:hover {
-    background-color: #995D21; /* Cor de fundo ao passar o mouse */
+    background-color: #995D21;
   }

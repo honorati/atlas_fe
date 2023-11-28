@@ -7,6 +7,7 @@ type Props = {
   minLength: number;
   type: string;
   initialValue?: string;
+  required: boolean;
 };
 
 const Text = forwardRef((props: Props, ref: ForwardedRef<HTMLInputElement>) => {
@@ -27,6 +28,7 @@ const Text = forwardRef((props: Props, ref: ForwardedRef<HTMLInputElement>) => {
       className="inputText"
       value={value}
       onChange={handleChange}
+      required={props.required}
     />
   );
 });

@@ -159,8 +159,6 @@ h1 {
   text-transform: uppercase;
 }
 
-
-
 .containerLabel {
   display: flex;
   flex-direction: row;
@@ -170,10 +168,4 @@ h1 {
   gap: 1rem;
 }
 
-.rowContent {
-  min-width: 12rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
+

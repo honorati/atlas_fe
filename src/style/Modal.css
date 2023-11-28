@@ -2,21 +2,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
 
 .modal {
-	margin: 0.5rem auto 0;
-
-	position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .containerWhite {
   display: flex;
-  padding: 1.25rem;
+  padding: 2rem;
   flex-direction: column;
   align-items: center; 
   gap: 0.5rem;
   border-radius: 0.5rem;
   background: #FFF;
-  justify-content: space-between;
   min-width: 12rem;
   max-width: 30rem;
 } 
-  
+ 
+.option {
+  font-size: 0.9rem;
+  white-space: nowrap;
+  margin-right: 30px;
+}
+
+.option:hover {
+  cursor: pointer;
+  color: #995D21;
+}
+
+.row-content {
+  min-width: 12rem;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}

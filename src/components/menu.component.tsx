@@ -3,10 +3,11 @@ import swal from "sweetalert";
 import { SignIn } from "./signin.component";
 import { getStorage } from "../utils/getStorage";
 import "../style/Menu.css";
+import { ValidateUser } from "./validate-user.component";
 
 const MainMenu = () => {
   const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
-  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+  const [isValidateModalOpen, setIsValidateModalOpen] = useState(false);
 
   console.error = (message) => {
     if (
@@ -23,6 +24,7 @@ const MainMenu = () => {
   );
 
   const [userLogin, setUserLogin] = useState(getStorage("login"));
+  const [userType, setUserType] = useState(getStorage("userType"));
 
   const openSignInModal = () => {
     setIsSignInModalOpen(true);
@@ -32,13 +34,18 @@ const MainMenu = () => {
     setIsSignInModalOpen(false);
     setIsUserLoggedIn(getStorage("accessToken"));
     setUserLogin(getStorage("login"));
+    setUserType(getStorage("userType"));
   };
 
-  const openSignUpModal = () => {
-    if (isSignUpModalOpen) {
-      setIsSignUpModalOpen(false);
-    }
-    setIsSignUpModalOpen(true);
+  const openValidateModal = () => {
+    setIsValidateModalOpen(true);
+  };
+
+  const closeValidateModal = () => {
+    setIsValidateModalOpen(false);
+    setIsUserLoggedIn(getStorage("accessToken"));
+    setUserLogin(getStorage("login"));
+    setUserType(getStorage("userType"));
   };
 
   const handleLogout = () => {
@@ -51,7 +58,7 @@ const MainMenu = () => {
   return (
     <div>
       <nav>
-        <a>Home</a>
+        <a>Início</a>
         <a href="#" className="dropdown">
           Mundos
           {isUserLoggedIn && (
@@ -81,21 +88,21 @@ const MainMenu = () => {
             {userLogin}
             <div className="dropdown-content">
               <a>Perfil</a>
+              {userType === "3" && <a>Administração</a>}
+              {userType === "0" && <a onClick={openValidateModal}>Validar</a>}
               <a onClick={handleLogout}>Sair</a>
             </div>
           </a>
         ) : (
-          <a className="dropdown">
-            Acesso
-            <div className="dropdown-content">
-              <a onClick={openSignInModal}>Login</a>
-              <a onClick={openSignUpModal}>Cadatre-se</a>
-            </div>
-          </a>
+          <a onClick={openSignInModal}>Login</a>
         )}
         <div className="animation start-home"></div>
       </nav>
-      {isSignInModalOpen && <SignIn onClose={closeSignInModal} />}
+      <div>{isSignInModalOpen && <SignIn onClose={closeSignInModal} />}</div>
+
+      <div>
+        {isValidateModalOpen && <ValidateUser onClose={closeValidateModal} />}
+      </div>
     </div>
   );
 };
