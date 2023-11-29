@@ -2,20 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
 
 nav {
-	margin: 0.5rem auto 0;
-
-	position: relative;
-	width: 35rem;
-	height: 3rem;
-	background-color: #34495e;
-	border-radius: 8px;
-	font-size: 0;
+   margin-top: 0.5rem;
+   margin-left: auto;
+   margin-right: auto;
+   position: fixed;
+   top: 0;
+   left: 50%; /* Adicionado para centralizar horizontalmente */
+   transform: translateX(-50%); /* Adicionado para centralizar horizontalmente */
+   max-width: 40rem;
+   min-width: 40rem;
+   height: 3rem;
+   background-color: rgba(0, 0, 0, 0.8);
+   border-radius: 8px;
+   font-size: 0;
+   z-index: 1;
 }
+
 nav a {
 	line-height: 50px;
-	height: 100%;
-	font-size: 0.8rem;
-    font-family: Noto Sans;
+	height: 100%; 
+	font-size: 1rem;
+   font-family: Noto Sans;
 	display: inline-block;
 	position: relative;
 	z-index: 1;
@@ -24,9 +31,11 @@ nav a {
 	color: white;
 	cursor: pointer;
 }
+
 nav a:hover {
     color: white;
 }
+
 nav .animation {
 	position: absolute;
 	height: 100%;
@@ -35,49 +44,59 @@ nav .animation {
 	transition: all .5s ease 0s;
 	border-radius: 8px;
 }
+
 a:nth-child(1) {
-	width: 7rem;
+	width: 8rem;
 }
+
 a:nth-child(2) {
-	width: 7rem;
+	width: 8rem;
 }
+
 a:nth-child(3) {
-	width: 7rem;
+	width: 8rem;
 }
+
 a:nth-child(4) {
-	width: 7rem;
+	width: 8rem;
 }
+
 a:nth-child(5) {
-	width: 7rem;
+	width: 8rem;
 }
+
 nav .start-home, a:nth-child(1):hover~.animation {
-	width: 7rem;
+	width: 8rem;
 	left: 0;
 	background-color: #995D21;
 }
+
 nav .start-mundos, a:nth-child(2):hover~.animation {
-	width: 7rem;
-	left: 7rem;
-	background-color: #D0A981;
-}
-nav .start-aventuras, a:nth-child(3):hover~.animation {
-	width: 7rem;
-	left: 14rem;
+	width: 8rem;
+	left: 8rem;
 	background-color: #995D21;
 }
-nav .start-inimigos, a:nth-child(4):hover~.animation {
-	width: 7rem;
-	left: 21rem;
-	background-color: #D0A981;
+
+nav .start-aventuras, a:nth-child(3):hover~.animation {
+	width: 8rem;
+	left: 16rem;
+	background-color: #995D21;
 }
+
+nav .start-inimigos, a:nth-child(4):hover~.animation {
+	width: 8rem;
+	left: 24rem;
+	background-color: #995D21;
+}
+
 nav .start-acesso, a:nth-child(5):hover~.animation {
-	width: 7rem;
-	left: 28rem;
+	width: 8rem;
+	left: 32rem;
 	background-color: #995D21;
 }
 
 nav .dropdown {
-    position: relative;
+   position: relative;
 }
   
 nav .dropdown-content {
@@ -88,6 +107,7 @@ nav .dropdown-content {
     background-color: transparent;
     border-radius: 8px;
     z-index: 2;
+    background-color: rgba(0, 0, 0, 0.6);
 }
   
 nav .dropdown:hover .dropdown-content {
@@ -100,4 +120,8 @@ nav .dropdown:hover .dropdown-content {
     background-color: #995D21;
 	border-radius: 8px;
     transition: 0.25s;
+}
+
+.submenu {
+   font-size: 0.8rem;
 }

@@ -6,6 +6,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 3;
 }
 
 .containerWhite {
@@ -36,4 +37,9 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
 }

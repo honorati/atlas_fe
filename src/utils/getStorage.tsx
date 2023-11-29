@@ -1,25 +1,25 @@
 export const getStorage = (key: string) => {
-  const localStorageData = localStorage.getItem(key);
+   const localStorageData = localStorage.getItem(key);
 
-  if (localStorageData) {
-    try {
-      return localStorageData;
-    } catch (error) {
-      console.error(error);
-      return null;
-    }
-  } else {
-    const sessionStorageData = sessionStorage.getItem(key);
-
-    if (sessionStorageData) {
+   if (localStorageData) {
       try {
-        return sessionStorageData;
+         return localStorageData;
       } catch (error) {
-        console.error(error);
-        return null;
+         console.error(error);
+         return null;
       }
-    } else {
-      return null;
-    }
-  }
+   } else {
+      const sessionStorageData = sessionStorage.getItem(key);
+
+      if (sessionStorageData) {
+         try {
+            return sessionStorageData;
+         } catch (error) {
+            console.error(error);
+            return null;
+         }
+      } else {
+         return null;
+      }
+   }
 };
