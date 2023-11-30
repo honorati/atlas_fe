@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+
+.input-file {
+   border: #EFEFEF;
+   display: flex;
+   min-height: 2rem;
+   min-width: 6rem;
+   padding: 0.1rem;
+   gap: 0.5rem;
+   border-radius: 1rem;
+   background: #EFEFEF; 
+   color: #995D21;
+   font-size: 1rem; 
+   font-family: Noto Sans;
+   font-style: oblique;
+   min-width: 15rem;
+ }
+
+ input::file-selector-button {
+   color: #995D21;
+   padding: 0.5em;
+   border-radius: 1rem;
+   background-color: #EFEFEF;
+   border: 1px solid #995D21;
+   transition: 0.5s; 
+ }
+
+ input::file-selector-button:hover {
+   color: #EFEFEF;
+   background-color: #995D21;
+   transition: 0.5s;
+ }

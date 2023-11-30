@@ -1,23 +1,13 @@
 import { useState } from "react";
-import swal from "sweetalert";
 import { getStorage } from "../utils/getStorage";
-import "../style/Menu.css";
 import { ValidateUser } from "./user/Validate";
 import { LogIn } from "./user/LogIn";
+import swal from "sweetalert";
+import "../style/Menu.css";
 
 const MainMenu = () => {
    const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
    const [isValidateModalOpen, setIsValidateModalOpen] = useState(false);
-
-   console.error = (message) => {
-      if (
-         message.startsWith(
-            "Warning: validateDOMNesting(...): <a> cannot appear as a descendant of <a>.",
-         )
-      ) {
-         console.clear();
-      }
-   };
 
    const [isUserLoggedIn, setIsUserLoggedIn] = useState(
       getStorage("accessToken"),

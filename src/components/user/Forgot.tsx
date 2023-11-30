@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Text } from "../input/Text";
+import { Text } from "../form/Text";
 import swal from "sweetalert";
 import "../../style/Modal.css";
 

@@ -7,8 +7,8 @@ nav {
    margin-right: auto;
    position: fixed;
    top: 0;
-   left: 50%; /* Adicionado para centralizar horizontalmente */
-   transform: translateX(-50%); /* Adicionado para centralizar horizontalmente */
+   left: 50%; 
+   transform: translateX(-50%); 
    max-width: 40rem;
    min-width: 40rem;
    height: 3rem;
@@ -100,26 +100,26 @@ nav .dropdown {
 }
   
 nav .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: transparent;
-    border-radius: 8px;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.6);
+   display: none;
+   position: absolute;
+   top: 100%;
+   left: 0;
+   background-color: transparent;
+   border-radius: 8px;
+   z-index: 2;
+   background-color: rgba(0, 0, 0, 0.6);
 }
   
 nav .dropdown:hover .dropdown-content {
-    display: block;
-	border-radius: 8px;
-    transition: 0.25s;
+   display: block;
+   border-radius: 8px;
+   transition: 0.25s;
 }
 
 .dropdown-content a:hover {
-    background-color: #995D21;
-	border-radius: 8px;
-    transition: 0.25s;
+   background-color: #995D21;
+   border-radius: 8px;
+   transition: 0.25s;
 }
 
 .submenu {

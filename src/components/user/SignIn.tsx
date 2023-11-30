@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { CheckBox, CheckBoxRef } from "../input/Checkbox";
-import { Text } from "../input/Text";
+import { CheckBox, CheckBoxRef } from "../form/Checkbox";
+import { Text } from "../form/Text";
 import swal from "sweetalert";
 import "../../style/Modal.css";
 
