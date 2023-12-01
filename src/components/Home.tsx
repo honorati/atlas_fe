@@ -7,7 +7,8 @@ const Home: React.FC = () => {
             <img src="/logo.png" alt="Atlas do Multiverso" className="logo" />
             <hr className="gradient-line" />
             <h1>O gerenciador definitivo para</h1>
-            <h1>sua campanha de RPG!</h1>
+            <h1>sua campanha de RPG</h1>
+            <h1>Disponível em 10/12/2023</h1>
             <hr className="gradient-line" />
             <div className="container">
                <div className="text-left">

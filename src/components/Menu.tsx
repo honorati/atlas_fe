@@ -49,7 +49,7 @@ const MainMenu = () => {
       <div>
          <nav>
             <a>Home</a>
-            <a href="#" className="dropdown">
+            {/* <a href="#" className="dropdown">
                Mundos
                {isUserLoggedIn && (
                   <div className="dropdown-content">
@@ -72,7 +72,7 @@ const MainMenu = () => {
                      <a className="submenu">Meu bestiário</a>
                   </div>
                )}
-            </a>
+            </a> */}
             {isUserLoggedIn ? (
                <a className="dropdown">
                   {userLogin}
