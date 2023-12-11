@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import { Text } from "../form/Text";
-import swal from "sweetalert";
+import { Input } from "../form/Input";
 import "../../style/Modal.css";
+import Swal from "sweetalert2";
 
 interface ForgotPasswordFormProps {
    openRecoverModal: () => void;
@@ -20,7 +20,13 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
          const recover = recoverRef.current?.value;
 
          if (!recover) {
-            swal("Ops!", "Preencha todos os campos!", "error");
+            Swal.fire({
+               icon: "error",
+               title: "Ops!",
+               text: "Preencha todos os campos!",
+               showConfirmButton: false,
+               timer: 1500,
+            });
             return;
          }
 
@@ -33,7 +39,13 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
          });
          openRecoverModal();
       } catch (error) {
-         swal("Ops!", "Não foi possível se conectar!", "error");
+         Swal.fire({
+            icon: "error",
+            title: "Ops!",
+            text: "Login ou senha inválidas!",
+            showConfirmButton: false,
+            timer: 1500,
+         });
       }
    };
 
@@ -41,7 +53,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
       <form className="containerWhite" onSubmit={handleForgot}>
          <h1>Recuperação de conta!</h1>
          <p>Insira o login ou e-mail da conta que deseja recuperar a senha.</p>
-         <Text
+         <Input
             type="text"
             placeholder="Login ou e-mail da conta cadastrada!"
             id="login"

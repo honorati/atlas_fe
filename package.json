@@ -5,7 +5,7 @@
    "type": "module",
    "scripts": {
       "dev": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\" && vite",
-      "build": "PORT=80 tsc && vite build",
+      "build": "tsc && vite build",
       "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
       "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
       "preview": "vite preview"
@@ -19,11 +19,13 @@
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
       "react-router-dom": "^6.20.0",
-      "sweetalert": "^2.1.2"
+      "sweetalert2": "^11.10.1",
+      "uuid": "^9.0.1"
    },
    "devDependencies": {
       "@types/react": "^18.2.15",
       "@types/react-dom": "^18.2.7",
+      "@types/uuid": "^9.0.7",
       "@typescript-eslint/eslint-plugin": "^6.0.0",
       "@typescript-eslint/parser": "^6.0.0",
       "@vitejs/plugin-react": "^4.0.3",

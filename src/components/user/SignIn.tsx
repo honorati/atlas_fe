@@ -1,8 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { CheckBox, CheckBoxRef } from "../form/Checkbox";
-import { Text } from "../form/Text";
-import swal from "sweetalert";
+import { Input } from "../form/Input";
 import "../../style/Modal.css";
+import { Loading } from "../Loading";
+import Swal from "sweetalert2";
 
 interface SignInFormProps {
    openSignUpModal: () => void;
@@ -15,23 +16,37 @@ const SignInForm: React.FC<SignInFormProps> = ({
    openForgotModal,
    onClose,
 }) => {
+   const [loading, setLoading] = useState<boolean>(false);
    const loginRef = useRef<HTMLInputElement>(null);
    const passwordRef = useRef<HTMLInputElement>(null);
    const checkBoxRef = useRef<CheckBoxRef>(null);
+
+   const handleLoading = () => {
+      setLoading(true);
+   };
+
    const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+      handleLoading();
       localStorage.clear();
       sessionStorage.clear();
 
+      const login = loginRef.current?.value;
+      const password = passwordRef.current?.value;
+
+      if (!login || !password) {
+         setLoading(false);
+         Swal.fire({
+            icon: "error",
+            title: "Ops!",
+            text: "Preencha todos os campos!",
+            showConfirmButton: false,
+            timer: 1500,
+         });
+         return;
+      }
+
       try {
-         const login = loginRef.current?.value;
-         const password = passwordRef.current?.value;
-
-         if (!login || !password) {
-            swal("Ops!", "Preencha todos os campos!", "error");
-            return;
-         }
-
          const res = await fetch(`${import.meta.env.VITE_API_URL}/auth`, {
             headers: {
                "Content-Type": "application/json",
@@ -52,22 +67,45 @@ const SignInForm: React.FC<SignInFormProps> = ({
                localStorage.setItem("userType", data.user.type);
             }
             if (data.user.type === 0) {
-               swal(
-                  "Sucesso!",
-                  "Sua conta não foi validada ainda, nem todas as funções estão liberadas!",
-                  "warning",
-               );
+               Swal.fire({
+                  icon: "warning",
+                  title: "Sucesso!",
+                  text: "Sua conta não foi validada ainda, nem todas as funções estão liberadas!",
+                  showConfirmButton: false,
+                  timer: 1500,
+               });
                onClose();
             } else {
-               swal("Sucesso!", "Bem vindo de volta cartógrafo!", "success");
+               Swal.fire({
+                  icon: "success",
+                  title: "Sucesso!",
+                  text: "Bem vindo de volta cartógrafo!",
+                  showConfirmButton: false,
+                  timer: 1500,
+               });
                onClose();
             }
          } else {
-            swal("Ops!", "Login ou senha inválidos!", "error");
+            Swal.fire({
+               icon: "error",
+               title: "Ops!",
+               text: "Login ou senha inválidas!",
+               showConfirmButton: false,
+               timer: 1500,
+            });
          }
       } catch (error) {
-         swal("Ops!", "Não foi possível se conectar!", "error");
+         Swal.fire({
+            icon: "error",
+            title: "Ops!",
+            text: "Não foi possível se conectar!",
+            showConfirmButton: false,
+            timer: 1500,
+         });
+         onClose();
       }
+
+      setLoading(false);
    };
 
    return (
@@ -76,7 +114,7 @@ const SignInForm: React.FC<SignInFormProps> = ({
          <p>
             Seja bem vindo ao Atlas do multiverso, para continuar, faça login.
          </p>
-         <Text
+         <Input
             type="text"
             placeholder="Login ou e-mail"
             id="login"
@@ -85,7 +123,7 @@ const SignInForm: React.FC<SignInFormProps> = ({
             ref={loginRef}
             required={true}
          />
-         <Text
+         <Input
             type="password"
             placeholder="Senha"
             id="password"
@@ -109,7 +147,8 @@ const SignInForm: React.FC<SignInFormProps> = ({
             </a>
          </div>
          <button className="defaultButton" type="submit">
-            Conectar
+            {loading ? "Conectando..." : "Conectar"}
+            {loading && <Loading />}
          </button>
       </form>
    );

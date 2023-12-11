@@ -1,14 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { CheckBox, CheckBoxRef } from "../form/Checkbox";
-import { Text } from "../form/Text";
-import swal from "sweetalert";
+import { Input } from "../form/Input";
 import "../../style/Modal.css";
+import { Loading } from "../Loading";
+import Swal from "sweetalert2";
 
 interface SignUpFormProps {
    onClose: () => void;
 }
 
 const SignUpForm: React.FC<SignUpFormProps> = ({ onClose }) => {
+   const [loading, setLoading] = useState<boolean>(false);
    const loginRef = useRef<HTMLInputElement>(null);
    const passwordRef = useRef<HTMLInputElement>(null);
    const emailRef = useRef<HTMLInputElement>(null);
@@ -17,8 +19,13 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onClose }) => {
    const mailingRef = useRef<CheckBoxRef>(null);
    const notificationRef = useRef<CheckBoxRef>(null);
 
+   const handleLoading = () => {
+      setLoading(true);
+   };
+
    const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+      handleLoading();
       localStorage.clear();
       sessionStorage.clear();
       try {
@@ -32,22 +39,50 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onClose }) => {
             notificationRef.current?.getValue() === "true" ? 1 : 0;
 
          if (login?.search(" ") !== -1) {
-            swal("Ops!", "O login não pode conter espaços!", "error");
+            setLoading(false);
+            Swal.fire({
+               icon: "error",
+               title: "Ops!",
+               text: "O login não pode conter espaços!",
+               showConfirmButton: false,
+               timer: 1500,
+            });
             return;
          }
 
          if (!login || !password || !email || !passwordRepeat) {
-            swal("Ops!", "Preencha todos os campos!", "error");
+            setLoading(false);
+            Swal.fire({
+               icon: "error",
+               title: "Ops!",
+               text: "Preencha todos os campos!",
+               showConfirmButton: false,
+               timer: 1500,
+            });
             return;
          }
 
          if (password !== passwordRepeat) {
-            swal("Ops!", "As senhas não são iguais!", "error");
+            setLoading(false);
+            Swal.fire({
+               icon: "error",
+               title: "Ops!",
+               text: "As senhas não são iguais!",
+               showConfirmButton: false,
+               timer: 1500,
+            });
             return;
          }
 
          if (email !== emailRepeat) {
-            swal("Ops!", "Os e-mails não são iguais!", "error");
+            setLoading(false);
+            Swal.fire({
+               icon: "error",
+               title: "Ops!",
+               text: "Os e-mails não são iguais!",
+               showConfirmButton: false,
+               timer: 1500,
+            });
             return;
          }
          const res = await fetch(`${import.meta.env.VITE_API_URL}/user`, {
@@ -68,24 +103,37 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onClose }) => {
             localStorage.setItem("accessToken", data.accessToken);
             localStorage.setItem("login", data.user.login);
             localStorage.setItem("userType", data.user.type);
-            swal(
-               "Sucesso!",
-               "Sua conta conta foi criada, valide seu e-mail!",
-               "warning",
-            );
+            Swal.fire({
+               icon: "warning",
+               title: "Sucesso!",
+               text: "Sua conta conta foi criada, valide seu e-mail!",
+            });
             onClose();
          } else if (res.status === 400) {
-            swal(
-               "Ops!",
-               "Este login ou e-mail já estão sendo usados!",
-               "error",
-            );
+            Swal.fire({
+               icon: "error",
+               title: "Ops!",
+               text: "Este login ou e-mail já estão sendo usados!",
+            });
          } else {
-            swal("Ops!", "Não foi possível criar sua conta!", "error");
+            Swal.fire({
+               icon: "error",
+               title: "Ops!",
+               text: "Não foi possível criar sua conta!",
+               showConfirmButton: false,
+               timer: 1500,
+            });
          }
       } catch (error) {
-         swal("Ops!", "Não foi possível se conectar!", "error");
+         Swal.fire({
+            icon: "error",
+            title: "Ops!",
+            text: "Não foi possível se conectar!",
+            showConfirmButton: false,
+            timer: 1500,
+         });
       }
+      setLoading(false);
    };
 
    return (
@@ -95,7 +143,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onClose }) => {
             Tenha acesso a tudo que o Atlas do multiverso tem a oferecer, basta
             criar sua conta.
          </p>
-         <Text
+         <Input
             type="text"
             placeholder="Como devemos te chamar? Não utilize espaços!"
             id="login"
@@ -104,7 +152,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onClose }) => {
             ref={loginRef}
             required={true}
          />
-         <Text
+         <Input
             type="email"
             placeholder="Qual seu e-mail?"
             id="email"
@@ -113,7 +161,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onClose }) => {
             ref={emailRef}
             required={true}
          />
-         <Text
+         <Input
             type="email"
             placeholder="Repita seu e-mail, tem que ser igualzinho!"
             id="emailRepeat"
@@ -122,7 +170,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onClose }) => {
             ref={emailRepeatRef}
             required={true}
          />
-         <Text
+         <Input
             type="password"
             placeholder="Insira uma senha"
             id="password"
@@ -131,7 +179,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onClose }) => {
             ref={passwordRef}
             required={true}
          />
-         <Text
+         <Input
             type="password"
             placeholder="Repita sua senha, tem que ser igualzinha!"
             id="repeatPassword"
@@ -151,7 +199,8 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onClose }) => {
             ref={notificationRef}
          />
          <button className="defaultButton" type="submit">
-            Cadastrar
+            {loading ? "Cadastrando..." : "Cadastrar"}
+            {loading && <Loading />}
          </button>
       </form>
    );

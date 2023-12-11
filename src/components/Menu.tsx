@@ -2,7 +2,6 @@ import { useState } from "react";
 import { getStorage } from "../utils/getStorage";
 import { ValidateUser } from "./user/Validate";
 import { LogIn } from "./user/LogIn";
-import swal from "sweetalert";
 import "../style/Menu.css";
 
 const MainMenu = () => {
@@ -41,15 +40,14 @@ const MainMenu = () => {
    const handleLogout = () => {
       localStorage.clear();
       sessionStorage.clear();
-      swal("Até mais!", "Você foi desconectado com sucesso!", "success");
       setIsUserLoggedIn(getStorage("accessToken"));
    };
 
    return (
       <div>
          <nav>
-            <a>Home</a>
-            {/* <a href="#" className="dropdown">
+            <a href="/">Home</a>
+            <a href="/" className="dropdown">
                Mundos
                {isUserLoggedIn && (
                   <div className="dropdown-content">
@@ -57,7 +55,7 @@ const MainMenu = () => {
                   </div>
                )}
             </a>
-            <a href="#" className="dropdown">
+            {/* <a href="#" className="dropdown">
                Aventuras
                {isUserLoggedIn && (
                   <div className="dropdown-content">
@@ -77,7 +75,7 @@ const MainMenu = () => {
                <a className="dropdown">
                   {userLogin}
                   <div className="dropdown-content">
-                     <a className="submenu">Perfil</a>
+                     {/* <a className="submenu">Perfil</a> */}
                      {userType === "3" && (
                         <a className="submenu">Administração</a>
                      )}
@@ -86,7 +84,7 @@ const MainMenu = () => {
                            Validar
                         </a>
                      )}
-                     <a onClick={handleLogout} className="submenu">
+                     <a onClick={handleLogout} className="submenu" href="/">
                         Sair
                      </a>
                   </div>

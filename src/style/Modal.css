@@ -15,6 +15,7 @@
   flex-direction: column;
   align-items: center; 
   gap: 0.5rem;
+  border: 4px solid #995D21;
   border-radius: 0.5rem;
   background: #FFF;
   min-width: 12rem;

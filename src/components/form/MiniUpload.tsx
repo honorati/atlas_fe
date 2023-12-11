@@ -8,7 +8,7 @@ interface Props {
    onFileChange: (file: File | null) => void;
 }
 
-const Upload: React.FC<Props> = (props) => {
+const MiniUpload: React.FC<Props> = (props) => {
    const fileInputRef = useRef<HTMLInputElement>(null);
    const [image, setImage] = useState<string>();
    const [dragOver, setDragOver] = useState<boolean>(false);
@@ -61,7 +61,7 @@ const Upload: React.FC<Props> = (props) => {
 
    return (
       <div
-         className={`container-preview ${dragOver ? "drag-over" : ""}`}
+         className={`mini-container-preview ${dragOver ? "drag-over" : ""}`}
          onDragOver={handleDragOver}
          onDragLeave={handleDragLeave}
          onDrop={handleDrop}
@@ -69,15 +69,14 @@ const Upload: React.FC<Props> = (props) => {
       >
          {image ? (
             <img
-               className="image-preview"
+               className="mini-image-preview"
                src={image}
                alt={props.alt}
-               draggable="false"
                style={{ cursor: "pointer" }}
             />
          ) : (
             <>
-               <img src="/upload.png" alt="upload" draggable="false" />
+               <img src="/miniUpload.png" alt="upload" draggable="false" />
                <p>Arraste a imagem para fazer o upload</p>
                <button type="button" className="defaultButton">
                   Procure o arquivo
@@ -95,4 +94,4 @@ const Upload: React.FC<Props> = (props) => {
    );
 };
 
-export default Upload;
+export default MiniUpload;

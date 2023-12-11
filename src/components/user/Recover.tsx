@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
-import { Text } from "../form/Text";
-import swal from "sweetalert";
+import React, { useRef, useState } from "react";
+import { Input } from "../form/Input";
 import "../../style/Modal.css";
+import { Loading } from "../Loading";
+import Swal from "sweetalert2";
 
 interface RecoverPasswordFormProps {
    onClose: () => void;
@@ -10,9 +11,14 @@ interface RecoverPasswordFormProps {
 const RecoverPasswordForm: React.FC<RecoverPasswordFormProps> = ({
    onClose,
 }) => {
+   const [loading, setLoading] = useState<boolean>(false);
    const recoverRef = useRef<HTMLInputElement>(null);
    const passwordRef = useRef<HTMLInputElement>(null);
    const passwordRepeatRef = useRef<HTMLInputElement>(null);
+
+   const handleLoading = () => {
+      setLoading(true);
+   };
 
    const handleRecover = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -24,15 +30,27 @@ const RecoverPasswordForm: React.FC<RecoverPasswordFormProps> = ({
          const passwordRepeat = passwordRepeatRef.current?.value;
 
          if (!recover || !password || !passwordRepeat) {
-            swal("Ops!", "Preencha todos os campos!", "error");
+            Swal.fire({
+               icon: "error",
+               title: "Ops!",
+               text: "Login ou senha inválidas!",
+               showConfirmButton: false,
+               timer: 1500,
+            });
             return;
          }
 
          if (password !== passwordRepeat) {
-            swal("Ops!", "As senhas não são iguais!", "error");
+            Swal.fire({
+               icon: "error",
+               title: "Ops!",
+               text: "As senhas não são iguais!",
+               showConfirmButton: false,
+               timer: 1500,
+            });
             return;
          }
-
+         handleLoading();
          const res = await fetch(
             `${import.meta.env.VITE_API_URL}/user/secret`,
             {
@@ -53,21 +71,41 @@ const RecoverPasswordForm: React.FC<RecoverPasswordFormProps> = ({
             localStorage.setItem("login", data.user.login);
             localStorage.setItem("userType", data.user.type);
             if (data.user.type === 0) {
-               swal(
-                  "Sucesso!",
-                  "Sua conta não foi validada ainda, nem todas as funções estão liberadas!",
-                  "warning",
-               );
+               Swal.fire({
+                  icon: "warning",
+                  title: "Sucesso!",
+                  text: "Sua conta não foi validada ainda, nem todas as funções estão liberadas!",
+                  showConfirmButton: false,
+                  timer: 1500,
+               });
                onClose();
             } else {
-               swal("Sucesso!", "Bem vindo de volta cartógrafo!", "success");
+               Swal.fire({
+                  icon: "success",
+                  title: "Sucesso!",
+                  text: "Bem vindo de volta cartógrafo!",
+                  showConfirmButton: false,
+                  timer: 1500,
+               });
                onClose();
             }
          } else {
-            swal("Ops!", "Frase secreta inválida!", "error");
+            Swal.fire({
+               icon: "error",
+               title: "Ops!",
+               text: "Frase secreta inválida!",
+               showConfirmButton: false,
+               timer: 1500,
+            });
          }
       } catch (error) {
-         swal("Ops!", "Não foi possível se conectar!", "error");
+         Swal.fire({
+            icon: "error",
+            title: "Ops!",
+            text: "Não foi possível se conectar!",
+            showConfirmButton: false,
+            timer: 1500,
+         });
       }
    };
 
@@ -78,7 +116,7 @@ const RecoverPasswordForm: React.FC<RecoverPasswordFormProps> = ({
             Verifique seu e-mail, caso não tenha recebido nada, valide os dados
             anteriormente inseridos.
          </p>
-         <Text
+         <Input
             type="text"
             placeholder="Frase secreta recebida por e-mail"
             id="recover"
@@ -87,7 +125,7 @@ const RecoverPasswordForm: React.FC<RecoverPasswordFormProps> = ({
             ref={recoverRef}
             required={true}
          />
-         <Text
+         <Input
             type="password"
             placeholder="Insira uma senha"
             id="password"
@@ -96,7 +134,7 @@ const RecoverPasswordForm: React.FC<RecoverPasswordFormProps> = ({
             ref={passwordRef}
             required={true}
          />
-         <Text
+         <Input
             type="password"
             placeholder="Repita sua senha, tem que ser igualzinha!"
             id="repeatPassword"
@@ -106,7 +144,7 @@ const RecoverPasswordForm: React.FC<RecoverPasswordFormProps> = ({
             required={true}
          />
          <button className="defaultButton" type="submit">
-            Recuperar
+            {loading ? <Loading /> : "Recuperar"}
          </button>
       </form>
    );
